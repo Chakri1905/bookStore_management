@@ -1,0 +1,8 @@
+CREATE TABLE bookdata (
+    id INT PRIMARY KEY,
+    title VARCHAR(45),
+    author VARCHAR(45),
+    isbn VARCHAR(45),
+    price VARCHAR(45),
+    quantity INT
+);

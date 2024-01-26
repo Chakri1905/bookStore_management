@@ -1,0 +1,59 @@
+Postman Api collection: https://api.postman.com/collections/16705020-3f066ee6-95ac-4b2b-be64-6a82b2dc8f3e?access_key=PMAT-01HN2Q8VGXH9C2A1MKT8PMC0XP
+
+Documentation of API Endpoints:
+Endpoint 1: /login (POST)
+Description: Endpoint to authenticate users and obtain JWT token.
+Request Body:
+username: Username of the user.
+password: Password of the user.
+Response:
+token: JWT token for authentication.
+Usage Example:
+bash
+
+curl -X POST http://localhost:5000/login -d '{"username": "example_user", "password": "example_password"}'
+Endpoint 2: /books (GET)
+Description: Retrieve all books from the bookstore.
+Response:
+List of books with details (title, author, ISBN, price, quantity).
+Usage Example:
+bash
+
+curl -X GET http://localhost:5000/books -H "Authorization: Bearer <your_token>"
+Endpoint 3: /books/<isbn> (GET)
+Description: Retrieve a specific book by ISBN.
+Response:
+Details of the book with the specified ISBN.
+Usage Example:
+bash
+
+curl -X GET http://localhost:5000/books/978-3-16-148410-0 -H "Authorization: Bearer <your_token>"
+Endpoint 4: /books (POST)
+Description: Add a new book to the bookstore.
+Request Body:
+Book details (title, author, ISBN, price, quantity).
+Response:
+Success message indicating book addition.
+Usage Example:
+bash
+
+curl -X POST http://localhost:5000/books -d '{"title": "New Book", "author": "Author Name", "isbn": "978-3-16-148410-0", "price": "10.99", "quantity": 5}' -H "Authorization: Bearer <your_token>"
+Endpoint 5: /books/<isbn> (PUT)
+Description: Update details of a book by ISBN.
+Request Body:
+Updated book details (title, author, ISBN, price, quantity).
+Response:
+Success message indicating book update.
+Usage Example:
+bash
+
+curl -X PUT http://localhost:5000/books/978-3-16-148410-0 -d '{"title": "Updated Book Title", "author": "New Author", "price": "15.99", "quantity": 10}' -H "Authorization: Bearer <your_token>"
+Endpoint 6: /books/<isbn> (DELETE)
+Description: Delete a book by ISBN.
+Response:
+Success message indicating book deletion.
+Usage Example:
+bash
+
+curl -X DELETE http://localhost:5000/books/978-3-16-148410-0 -H "Authorization: Bearer <your_token>"
+Unit Tests:
